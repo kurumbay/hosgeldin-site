@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoş Geldin Aşko 💖</title>
+  <style>
+    body {
+      background: #ffe6f0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #d63384;
+    }
+
+    input, button {
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff69b4;
+      font-size: 16px;
+      margin: 10px;
+    }
+
+    button {
+      background-color: #ffb6c1;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+      transform: scale(1.1);
+    }
+
+    #mesaj {
+      font-size: 24px;
+      margin-top: 20px;
+      transition: opacity 0.8s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>✨ Aşko Yaşını Öğrenmek mi İstiyorsun? ✨</h2>
+
+  <label>İsmin:</label>
+  <input type="text" id="isim"><br>
+
+  <label>Doğum Yılın:</label>
+  <input type="number" id="dogumYili"><br>
+
+  <button onclick="hosgeldinMesaji()">Gönder 💌</button>
+
+  <p id="mesaj"></p>
+
+  <!-- Katy Perry Audio -->
+  <audio id="ses">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Tarayıcınız ses çalmayı desteklemiyor.
+  </audio>
+
+  <script>
+    const hosgeldinMesaji = () => {
+      const isim = document.getElementById("isim").value;
+      const dogumYili = parseInt(document.getElementById("dogumYili").value);
+      const yas = 2025 - dogumYili;
+
+      const mesaj = `💖 Hoş geldin ${isim.toUpperCase()}! Yaşın ${yas} 🎀`;
+      const mesajAlani = document.getElementById("mesaj");
+
+      mesajAlani.style.opacity = 0;
+      setTimeout(() => {
+        mesajAlani.innerText = mesaj;
+        mesajAlani.style.opacity = 1;
+      }, 300);
+
+      // Müzik başlat
+      document.getElementById("ses").play();
+    };
+  </script>
+
+</body>
+</html>
